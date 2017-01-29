@@ -7,3 +7,16 @@ gdb provides a git-like experience for databases.
 - Works with any shared hosting provider
 - Data and schema changes, at the same time
 - Blazingly fast
+
+
+Installation
+
+- gdb init
+- edit /.gdb/config.json
+- gdb clone
+
+Usage
+
+- gdb status
+- gdb pull
+- gdb push
