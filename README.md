@@ -13,7 +13,6 @@ Installation
 
 - gdb init
 - edit /.gdb/config.json
-- gdb clone
 
 Usage
 
