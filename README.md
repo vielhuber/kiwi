@@ -19,3 +19,4 @@ Usage
 - gdb status
 - gdb pull
 - gdb push
+- gdb rollback
