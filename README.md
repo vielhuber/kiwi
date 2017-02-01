@@ -1,6 +1,6 @@
-# gdb
+# yoda
 
-gdb provides a git-like experience for databases.
+yoda provides a git-like experience for databases.
 
 - No MySQL Triggers
 - No binary / ddl logs
@@ -11,12 +11,11 @@ gdb provides a git-like experience for databases.
 
 Installation
 
-- gdb init
-- edit /.gdb/config.json
+- yoda init
 
 Usage
 
-- gdb status
-- gdb pull
-- gdb push
-- gdb rollback
+- yoda status
+- yoda pull
+- yoda push
+- yoda rollback
