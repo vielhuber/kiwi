@@ -18,7 +18,7 @@
 
 ## usage
 
-kiwi status
+```kiwi status
 kiwi pull
 kiwi push
-kiwi rollback
+kiwi rollback```
