@@ -18,10 +18,7 @@
 
 ## usage
 
-```
-kiwi status
-
-kiwi pull
-kiwi push
-kiwi rollback
-```
+`kiwi status`
+`kiwi pull`
+`kiwi push`
+`kiwi rollback`
