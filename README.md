@@ -2,16 +2,15 @@
 
 yoda provides a git-like experience for databases.
 
-- No MySQL Triggers
-- No binary / ddl logs
-- Works with any shared hosting provider
-- Data and schema changes, at the same time
-- Blazingly s fast
+- no sql triggers
+- no binary / ddl logs
+- works with any shared hosting provider
+- data and schema changes, at the same time
+- blazingly fast
 - command line tool usage
-
-Only requirements on remote repo: ssh and database
-Open source and free
-
+- requires only ssh and database access to repo
+- open source and free
+- support for both mysql and postgresql
 
 Installation
 
