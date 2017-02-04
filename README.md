@@ -1,6 +1,6 @@
-# yoda
+# yoda🐍
 
-yoda provides a git-like experience for databases.
+**yoda provides a git-like experience for databases.**
 
 * no sql triggers
 * no binary / ddl logs
