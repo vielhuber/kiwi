@@ -1,6 +1,6 @@
-# yoda🐍
+# 🥝 kiwi 🥝
 
-**yoda provides a git-like experience for databases.**
+**kiwi provides a git-like experience for databases.**
 
 * no sql triggers
 * no binary / ddl logs
@@ -14,11 +14,11 @@
 
 ## installation
 
-yoda init
+kiwi init
 
 ## usage
 
-yoda status
-yoda pull
-yoda push
-yoda rollback
+kiwi status
+kiwi pull
+kiwi push
+kiwi rollback
