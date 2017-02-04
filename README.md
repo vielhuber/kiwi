@@ -19,6 +19,9 @@
 ## usage
 
 `kiwi status`
+
 `kiwi pull`
+
 `kiwi push`
+
 `kiwi rollback`
