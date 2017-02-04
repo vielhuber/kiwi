@@ -14,7 +14,7 @@
 
 ## installation
 
-kiwi init
+`kiwi init`
 
 ## usage
 
