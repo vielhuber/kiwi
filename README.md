@@ -11,6 +11,7 @@
 * requires only ssh and database access to repo
 * open source and free
 * support for both mysql and postgresql
+* search/replace mask function for production/staging/dev specific strings
 
 ## installation
 
