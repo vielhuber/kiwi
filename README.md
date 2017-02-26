@@ -17,6 +17,7 @@
 ## installation
 
 first setup kiwi on client:
+
 `kiwi init`
 
 then rollback local db to empty state:
