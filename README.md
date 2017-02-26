@@ -16,16 +16,23 @@
 
 ## installation
 
-on remote: `kiwi init remote`
+first setup kiwi on client:
+`kiwi init`
 
-on client: `kiwi init`
+then rollback local db to empty state:
+`kiwi rollback`
+
+pull state of remote repo:
+`kiwi pull all`
+
 
 ## usage
 
+get current status:
 `kiwi status`
 
+pull if needed:
 `kiwi pull`
 
+push to remote:
 `kiwi push`
-
-`kiwi rollback`
