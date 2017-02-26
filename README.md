@@ -15,7 +15,8 @@
 
 ## installation
 
-`kiwi init`
+on remote: `kiwi init remote`
+on client: `kiwi init`
 
 ## usage
 
