@@ -1,6 +1,6 @@
 # 🥝 kiwi 🥝
 
-**kiwi provides a git-like experience for databases.**
+**kiwi provides a git-like experience for relational databases.**
 
 * no sql triggers
 * no binary / ddl logs
@@ -11,8 +11,8 @@
 * requires only ssh access to remote repository
 * open source and free
 * support for both mysql and postgresql
-* search/replace mask function for production/staging/dev specific strings
-* test suite
+* search/replace layer for environment specific values (serialize safe!)
+* test suite available
 
 ## installation
 
@@ -26,7 +26,7 @@ then rollback local db to empty state:
 
 pull state of remote repo:
 
-`kiwi pull all`
+`kiwi pull`
 
 
 ## usage
