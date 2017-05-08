@@ -1,0 +1,4 @@
+composer.lock
+/.kiwi/
+/bulk/
+/vendor/

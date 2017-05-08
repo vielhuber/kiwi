@@ -1,0 +1,13 @@
+{
+    "require": {
+        "vielhuber/dbhelper": "^1.0",
+        "vielhuber/stringhelper": "^1.0",
+        "vielhuber/magicreplace": "^1.2",
+        "vielhuber/magicdiff": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "vendor/vielhuber/stringhelper/StringHelper.php"
+        ]
+    }
+}
