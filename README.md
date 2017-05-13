@@ -20,9 +20,13 @@ This does not prevent you from taking backups. Use this script at your own risk.
 
 ## Installation
 
+Install globally:
 ```
-composer require vielhuber/kiwi
+composer global require vielhuber/kiwi
 ```
+Add to PATH:
+~/.composer/vendor/bin (unix)
+%APPDATA%\Composer\vendor\vielhuber\kiwi\src (windows)
 
 ## Usage
 
