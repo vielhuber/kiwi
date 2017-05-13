@@ -1,9 +1,9 @@
 {
     "name": "vielhuber/kiwi",
     "description": "kiwi provides a git-like experience for relational databases.",
-    "require": { "php": ">=5.6" },
     "license": "MIT",
     "require": {
+    	"php": ">=5.6",
         "vielhuber/dbhelper": "^1.0",
         "vielhuber/stringhelper": "^1.0",
         "vielhuber/magicreplace": "^1.2",

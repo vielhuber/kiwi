@@ -14,31 +14,30 @@
 * search/replace layer for environment specific values (serialize safe!)
 * test suite available
 
-## installation
+## Disclaimer
+
+This does not prevent you from taking backups. Use this script at your own risk.
+
+## Installation
+
+```
+composer require vielhuber/magicdiff
+```
+
+## Usage
 
 first setup kiwi on client:
 
 `kiwi init`
 
-then rollback local db to empty state:
-
-`kiwi rollback`
-
-pull state of remote repo:
-
-`kiwi pull`
-
-
-## usage
-
 get current status:
 
 `kiwi status`
 
-pull if needed:
-
-`kiwi pull`
-
-push to remote:
+push changes to remote repo:
 
 `kiwi push`
+
+pull state of remote repo:
+
+`kiwi pull`
