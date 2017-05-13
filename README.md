@@ -21,7 +21,7 @@ This does not prevent you from taking backups. Use this script at your own risk.
 ## Installation
 
 ```
-composer require vielhuber/magicdiff
+composer require vielhuber/kiwi
 ```
 
 ## Usage
