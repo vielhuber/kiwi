@@ -23,9 +23,8 @@ This does not prevent you from taking backups. Use this script at your own risk.
 Install or update locally (per project):
 ```
 wget https://raw.githubusercontent.com/vielhuber/kiwi/master/kiwi.phar
-chmod 755 kiwi.phar
+chmod +x kiwi.phar
 mv kiwi.phar /usr/local/bin/kiwi
-kiwi install
 ```
 
 ## Usage
