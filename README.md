@@ -26,7 +26,7 @@ composer global require vielhuber/kiwi
 ```
 Add to PATH:
 ```
-~/.composer/vendor/kiwi/src (unix)
+~/.composer/vendor/vielhuber/kiwi/src (unix)
 %APPDATA%\Composer\vendor\vielhuber\kiwi\src (windows)
 ```
 
