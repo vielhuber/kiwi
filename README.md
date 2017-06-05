@@ -22,12 +22,9 @@ This does not prevent you from taking backups. Use this script at your own risk.
 
 Install globally:
 ```
-composer global require vielhuber/kiwi
-```
-Add to PATH:
-```
-~/.config/composer/vendor/vielhuber/kiwi/src (unix)
-%APPDATA%\Composer\vendor\vielhuber\kiwi\src (windows)
+wget https://raw.githubusercontent.com/vielhuber/kiwi/master/src/kiwi.phar
+chmod 755 kiwi.phar
+$ sudo mv kiwi.phar /usr/local/bin/kiwi
 ```
 
 ## Usage
