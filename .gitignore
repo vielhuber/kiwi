@@ -3,3 +3,4 @@ composer.lock
 /bulk/
 /vendor/
 /.magicdiff/
+phar-composer.phar
