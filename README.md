@@ -24,7 +24,7 @@ Install or update locally (per project):
 ```
 wget https://raw.githubusercontent.com/vielhuber/kiwi/master/kiwi.phar
 chmod +x kiwi.phar
-mv kiwi.phar /usr/local/bin/kiwi
+sudo mv kiwi.phar /usr/local/bin/kiwi
 ```
 
 ## Usage
