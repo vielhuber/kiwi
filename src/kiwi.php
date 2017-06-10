@@ -37,6 +37,11 @@ class kiwi
 		return false;
 	}
 
+	public static function checkInitAndStop() {
+		if( kiwi::checkInit() === true ) { return true; }
+		kiwi::outputAndStop('init first');
+	}
+
 	public static function setupInitFiles() {
 		if( !is_dir(kiwi::path()) ) { mkdir( kiwi::path() ); }
 		magicdiff::setupDir();
@@ -79,6 +84,7 @@ class kiwi
 	/* status */
 
 	public static function status() {
+		kiwi::checkInitAndStop();
 		$local_state = kiwi::getLocalState();
 		$remote_state = kiwi::getRemoteState();
 		kiwi::output('you are currently on state '.kiwi::formatState($local_state));
@@ -100,6 +106,7 @@ class kiwi
 	/* push */
 
 	public static function push() {
+		kiwi::checkInitAndStop();
 		if( kiwi::getLocalState() < kiwi::getRemoteState() ) { kiwi::outputAndStop('you need to pull first before you push'); }
 		$diff = magicdiff::diff();
 		if(empty($diff)) { kiwi::outputAndStop('nothing to push'); }
@@ -128,6 +135,7 @@ class kiwi
 	/* rollback */
 
 	public static function rollback() {
+		kiwi::checkInitAndStop();
 		kiwi::deleteDatabase();
 		kiwi::importSql(kiwi::path().'/reference_schema.sql');
 		kiwi::importSql(kiwi::path().'/reference_data.sql');
@@ -136,6 +144,7 @@ class kiwi
 	/* pull */
 
 	public static function pull() {
+		kiwi::checkInitAndStop();
 
 		$local_state = kiwi::getLocalState();
 		$remote_state = kiwi::getRemoteState();
