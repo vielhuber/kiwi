@@ -20,7 +20,7 @@ This does not prevent you from taking backups. Use this script at your own risk.
 
 ## Installation
 
-Install or update locally (per project):
+Install/update globally:
 ```
 wget https://raw.githubusercontent.com/vielhuber/kiwi/master/kiwi.phar
 chmod +x kiwi.phar
