@@ -140,7 +140,7 @@ class kiwi
 		$local_state = kiwi::getLocalState();
 		$remote_state = kiwi::getRemoteState();
 		
-		if( $local_state >= $remote_state ) { kiwi::output('nothing to pull',true); }
+		if( $local_state >= $remote_state ) { kiwi::outputAndStop('nothing to pull'); }
 
 		// setup sql connection
 		$db = kiwi::sql();
@@ -390,7 +390,7 @@ if( php_sapi_name() == 'cli' )
 
 	if (!isset($argv) || empty($argv) || !isset($argv[1]) || !in_array($argv[1],['init','status','pull','push','rollback','initTest']))
 	{
-		kiwi::output('missing options',true);
+		kiwi::outputAndStop('missing options');
 	}
 
 	if( $argv[1] == 'initTest' )

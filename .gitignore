@@ -3,4 +3,5 @@ composer.lock
 /bulk/
 /vendor/
 /.magicdiff/
-phar-composer.phar
+/box.phar
+/box.json
