@@ -42,6 +42,9 @@ class init
 		init::do();
 		helper::deleteDatabase();
 		helper::createRandomData();
+		if( !is_dir(helper::path()) ) { mkdir(helper::path()); }
+		file_put_contents( helper::path().'/config.json', init::getConfigBoilerplateTest() );
+		file_put_contents( helper::path().'/state.local', '' );
 	}
 
 	public static function createRandomData()
@@ -52,6 +55,37 @@ class init
 	}
 
 	public static function getConfigBoilerplate()
+	{
+		$config = '{
+			"engine": "mysql",
+			"database": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "",
+				"username": "",
+				"password": "",
+				"export": "mysqldump",				
+				"import": "mysql"
+			},
+			"remote": {
+				"host": "",
+				"port": "22",
+				"username": "",
+				"key": "~/.ssh/id_rsa",
+				"path": "/.../remote.kiwi"
+			},
+			"ignore": [
+				"example1"
+			],
+			"replace": {
+				"example1": "example2"
+			}
+		}';
+        $config = str_replace('\\','\\\\',(str_replace('			','	',str_replace('		}','}',$config))));
+        return $config;
+	}
+
+	public static function getConfigBoilerplateTest()
 	{
 		$config = '{
 			"engine": "mysql",
