@@ -4,7 +4,7 @@
 
 * no sql triggers
 * no binary / ddl logs
-* works with any shared hosting provider
+* works with any shared hosting provider that runs linux
 * data and schema changes, at the same time
 * blazingly fast
 * command line tool usage
@@ -13,10 +13,20 @@
 * support for both mysql and postgresql
 * search/replace layer for environment specific values (serialize safe!)
 * test suite available
+* works together with WordPress, Shopware or any other raw sql database
 
 ## Disclaimer
 
 This does not prevent you from taking backups. Use this script at your own risk.
+
+
+## Client requirements
+
+* php7
+* diff
+* patch
+* scp
+
 
 ## Installation
 
