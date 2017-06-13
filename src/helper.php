@@ -197,4 +197,9 @@ class helper
 		return $query;
 	}
 
+	public static function version()
+	{
+		helper::output('1.0.0');
+	}
+
 }

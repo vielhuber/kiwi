@@ -14,7 +14,7 @@ class cli
 
 		if( php_sapi_name() != 'cli' ) { return; }
 
-		if (!isset($argv) || empty($argv) || !isset($argv[1]) || !in_array($argv[1],['init','status','push','pull','rollback','initTest']))
+		if (!isset($argv) || empty($argv) || !isset($argv[1]) || !in_array($argv[1],['init','status','push','pull','rollback','initTest','--version']))
 		{
 			helper::outputAndStop('missing options');
 		}
@@ -47,6 +47,10 @@ class cli
 		if( $argv[1] == 'test' )
 		{
 			init::test();
+		}
+
+		if( $argv[1] == '--version' ) {
+			helper::version();
 		}
 
 	}
