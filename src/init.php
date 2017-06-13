@@ -64,7 +64,7 @@ class init
 				"database": "",
 				"username": "",
 				"password": "",
-				"export": "mysqldump",				
+				"export": "mysqldump",
 				"import": "mysql"
 			},
 			"remote": {
@@ -95,7 +95,7 @@ class init
 				"database": "_test1",
 				"username": "root",
 				"password": "root",
-				"export": "C:\\MAMP\\bin\\mysql\\bin\\mysqldump.exe",				
+				"export": "C:\\MAMP\\bin\\mysql\\bin\\mysqldump.exe",
 				"import": "C:\\MAMP\\bin\\mysql\\bin\\mysql.exe"
 			},
 			"remote": {
