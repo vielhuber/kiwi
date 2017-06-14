@@ -4,27 +4,29 @@
 
 ![kiwi in action](https://raw.githubusercontent.com/vielhuber/kiwi/master/kiwi.gif)
 
+This is currently a proof-of-concept.
+
 ## Features
 
-* no sql triggers
-* no binary / ddl logs
-* zero dependencies
-* support for mysql & mariadb
-* works with any shared hosting provider that runs linux
-* detects [data and schema changes](https://github.com/vielhuber/magicdiff), at the same time
-* blazingly fast
-* command line tool usage
-* requires only ssh access to remote repository
-* open source and free
-* [search/replace layer](https://github.com/vielhuber/magicreplace) for environment specific values (serialize safe!)
-* works together with WordPress, Shopware or any other raw sql database
+* No sql triggers
+* No binary / ddl logs
+* Zero dependencies
+* Support for mysql & mariadb
+* Works with any shared hosting provider that runs linux
+* Detects [data and schema changes](https://github.com/vielhuber/magicdiff), at the same time
+* Fast
+* Command line tool usage
+* Requires only ssh access to remote repository
+* [Search/replace layer](https://github.com/vielhuber/magicreplace) for environment specific values (serialize safe)
+* Works together with WordPress, Shopware or any other raw sql database
 
 ## Planned
 
-* support for postgresql
-* advanced conflict solver
-* support for syncing views, trigger, functions and transactions
-* test suite
+* Support for postgresql
+* Advanced conflict solver
+* Support for syncing views, trigger, functions and transactions
+* Test suite
+* Branching and other git-like features
 
 ## Disclaimer
 
@@ -48,22 +50,22 @@ sudo mv kiwi.phar /usr/local/bin/kiwi
 
 ## Usage
 
-first setup kiwi on client:
+First setup kiwi on client:
 
 `kiwi init`
 
-change settings for local/remote database:
+Change settings for local/remote database:
 
 `nano .kiwi/config.json`
 
-get current status:
+Get current status:
 
 `kiwi status`
 
-push changes to remote repo:
+Push changes to remote repo:
 
 `kiwi push`
 
-pull state of remote repo:
+Pull state of remote repo:
 
 `kiwi pull`
