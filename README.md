@@ -10,7 +10,6 @@ This is currently a proof-of-concept.
 
 * No sql triggers
 * No binary / ddl logs
-* Zero dependencies
 * Support for mysql & mariadb
 * Works with any shared hosting provider that runs linux
 * Detects [data and schema changes](https://github.com/vielhuber/magicdiff), at the same time
@@ -32,12 +31,12 @@ This is currently a proof-of-concept.
 
 This does not prevent you from taking backups. Use this script at your own risk.
 
-## Client requirements
+## Dependencies
 
-* php7
-* diff
-* patch
-* scp
+* [php7](http://php.net/)
+* [diff](https://linux.die.net/man/1/diff)
+* [patch](https://linux.die.net/man/1/patch)
+* [scp](https://linux.die.net/man/1/scp)
 
 ## Installation
 

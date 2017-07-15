@@ -9,40 +9,48 @@ require_once(__DIR__.'/../vendor/autoload.php');
 class helper
 {
 
-    public static function path() {
+    public static function path()
+    {
         $path = getcwd();
 		if( strpos($path,'\src') !== false ) { $path = str_replace('\src','',$path); }
         $path .= '/.kiwi/';
         return $path;
 	}
 
-	public static function pathScp() {
+	public static function pathScp()
+	{
 		$path = helper::path();
-		if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ) {
+		if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' )
+		{
 			$path = str_replace('C:\\','/cygdrive/c/',$path);
 		}
 		return $path;
 	}
 
-    public static function output($message) {
+    public static function output($message)
+    {
         echo $message;
         echo PHP_EOL;
     }
 
-    public static function outputAndStop($message) {
+    public static function outputAndStop($message)
+    {
         helper::output($message);
         die();
     }
 
-	public static function copyFromRemote($remote, $local = '') {
+	public static function copyFromRemote($remote, $local = '')
+	{
 		helper::command('scp -r -i "'.helper::conf('remote.key').'" '.helper::conf('remote.username').'@'.helper::conf('remote.host').':'.helper::conf('remote.path').'/'.$remote.' '.helper::pathScp().'/'.$local);
 	}
 
-	public static function copyToRemote($local, $remote) {
+	public static function copyToRemote($local, $remote)
+	{
 		helper::command('scp -r -i "'.helper::conf('remote.key').'" '.helper::pathScp().'/'.$local.' '.helper::conf('remote.username').'@'.helper::conf('remote.host').':'.helper::conf('remote.path').'/'.$remote);
 	}
 
-	public static function sql() {
+	public static function sql()
+	{
 		return new PDO('mysql:host='.helper::conf('database.host').';port='.helper::conf('database.port').';dbname='.helper::conf('database.database'), helper::conf('database.username'), helper::conf('database.password'), [
 			PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 			PDO::ATTR_EMULATE_PREPARES => false,
@@ -51,11 +59,13 @@ class helper
 		]);
 	}
 
-	public static function commandOnRemote($command) {
+	public static function commandOnRemote($command)
+	{
 		helper::command('ssh -i "'.helper::conf('remote.key').'" '.helper::conf('remote.username').'@'.helper::conf('remote.host').' "'.$command.'"');
 	}
 
-	public static function command($command, $verbose = false) {
+	public static function command($command, $verbose = false)
+	{
 		if( $verbose === false ) {
 			if( strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ) {
 				$command .= ' 2> nul';
@@ -68,7 +78,8 @@ class helper
 		return $return;
 	}
 
-	public static function conf($path) {
+	public static function conf($path)
+	{
 		$config = file_get_contents(helper::path().'/config.json');
 		$config = json_decode($config);
 		// check if this is valid json
@@ -86,7 +97,8 @@ class helper
         return $config;       
 	}
 
-	public static function getLocalState() {
+	public static function getLocalState()
+	{
 		if( !file_exists(helper::path().'/state.local') ) { return 0; }
 		$state = file_get_contents(helper::path().'/state.local');
 		$state = str_replace(["\r\n", "\r", "\n"],'',$state);				
@@ -95,7 +107,8 @@ class helper
 		return $state;
 	}
 
-	public static function getRemoteState() {
+	public static function getRemoteState()
+	{
 		helper::copyFromRemote('state.remote', 'state.remote');
 		if( !file_exists(helper::path().'/state.remote') ) { return 0; }
 		$state = file_get_contents(helper::path().'/state.remote');
@@ -106,17 +119,20 @@ class helper
 		return $state;
 	}
 
-	public static function generateNextState() {
+	public static function generateNextState()
+	{
 		$state = helper::getRemoteState();
 		$state++;
 		return $state;
 	}
 
-	public static function formatState($state) {
+	public static function formatState($state)
+	{
 		return str_pad($state, 10, '0', STR_PAD_LEFT);
 	}
 
-	public static function isValidState($state) {
+	public static function isValidState($state)
+	{
 		if($state === null) { return false; }
 		if($state == '') { return false; }
 		$state = intval($state);
@@ -124,7 +140,8 @@ class helper
 		return true;
 	}
 
-	public static function updateLocalState($state = null) {
+	public static function updateLocalState($state = null)
+	{
 		if( $state === null ) {
 			$state = helper::getRemoteState();
 			$state++;
@@ -132,7 +149,8 @@ class helper
 		file_put_contents(helper::path().'/state.local',helper::formatState($state));
 	}
 
-	public static function updateRemoteState($state = null) {
+	public static function updateRemoteState($state = null)
+	{
 		if( $state === null ) {
 			$state = helper::getRemoteState();
 			$state++;
@@ -142,7 +160,8 @@ class helper
 		unlink(helper::path().'/state.remote');
 	}
 
-	public static function updateRemoteDump($diff, $state) {
+	public static function updateRemoteDump($diff, $state)
+	{
 		$state = helper::formatState($state);
 		foreach($diff as $diff__value) {
 			foreach([['patch','schema'],['patch','data'],['diff','schema'],['diff','data']] as $type) {
@@ -156,12 +175,14 @@ class helper
 		}		
 	}
 
-	public static function importSql($file) {
+	public static function importSql($file)
+	{
 		if(!file_exists($file)) { helper::outputAndStop('file cannot be imported'); }
 		helper::command(helper::conf('database.import').' -h '.helper::conf('database.host').' --port '.helper::conf('database.port').' -u '.helper::conf('database.username').' -p"'.helper::conf('database.password').'" --default-character-set=utf8 '.helper::conf('database.database').' < '.$file);
 	}
 
-	public static function deleteDatabase() {
+	public static function deleteDatabase()
+	{
 		$db = helper::sql();
 		$db->query('SET foreign_key_checks = 0');
 		$tables = $db->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
@@ -173,7 +194,8 @@ class helper
 		$db->query('SET foreign_key_checks = 1');
 	}
 
-	public static function ask($question, $answers = null) {
+	public static function ask($question, $answers = null)
+	{
 		echo $question.' ';
 		$handle = fopen("php://stdin","r");
 		$answer = fgets($handle);
@@ -187,7 +209,8 @@ class helper
 		return $answer;
 	}
 
-	public static function splitQuery($query) {
+	public static function splitQuery($query)
+	{
 		$unique_delimiter = md5(uniqid(rand(), true));
 		$query = str_replace(["\r\n", "\r", "\n"], $unique_delimiter, $query);
 		$query = str_replace(';'.$unique_delimiter, ';'.PHP_EOL, $query);
