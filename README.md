@@ -19,6 +19,10 @@ This is currently a proof-of-concept.
 * [Search/replace layer](https://github.com/vielhuber/magicreplace) for environment specific values (serialize safe)
 * Works together with WordPress, Shopware or any other raw sql database
 
+## Other tools
+
+* [mergebot](https://mergebot.com)
+
 ## Planned
 
 * Support for postgresql
